@@ -4,7 +4,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
 import { Component } from '@angular/core';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { IonicPage, NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-inventory',
@@ -20,13 +20,8 @@ export class InventoryPage {
 
   product: Observable<Product>;
 
-  constructor(public navCtrl: NavController, 
-    public navParams: NavParams, 
-    public localNotifications: LocalNotifications,
-    private toastCtrl: ToastController, 
-    private afDb: AngularFireDatabase, 
-    private afAuth: AngularFireAuth,
-    private viewlCtrl: ViewController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public localNotifications: LocalNotifications,
+    private toastCtrl: ToastController, private afDb: AngularFireDatabase, private afAuth: AngularFireAuth) {
     this.id = navParams.get('value');
 
     this.afAuth.authState.subscribe(data => {
@@ -40,16 +35,16 @@ export class InventoryPage {
     console.log('ionViewDidLoad InventoryPage');
   }
 
+  
+
+  
+
   private showToast(text: string) {
     this.toastCtrl.create({
       message: text,
       duration: 2500
 
     }).present();
-  }
-
-  closeModal(){
-    this.viewlCtrl.dismiss();
   }
 
 }
