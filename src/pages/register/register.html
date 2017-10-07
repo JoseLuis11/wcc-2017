@@ -1,5 +1,5 @@
-
 <ion-content padding>
+  <img src="assets/img/logo.png">
   <ion-list>
     <ion-item>
       <ion-label color="primary" floating>
@@ -35,8 +35,7 @@
       <ion-buttons>
         <button ion-button block color="primary" icon-right [disabled]="!user.email.includes('@') || !user.email.includes('.') 
         ||user.email.length<5 || profile.firstName.length<2 
-        || profile.lastName.length<2 || user.password.length<6"
-         (click)="addUser()" ion-button>
+        || profile.lastName.length<2 || user.password.length<6" (click)="addUser()" ion-button>
       Crear cuenta
       <ion-icon name="ios-log-in-outline"></ion-icon>
       </button>
@@ -47,6 +46,6 @@
 
 <ion-footer>
   <ion-toolbar>
-    <p text-center>¿Ya estás registrado? <a navPop >Inicia Sesión. </a></p>
+    <p text-center>¿Ya estás registrado? <a navPop>Inicia Sesión. </a></p>
   </ion-toolbar>
 </ion-footer>
