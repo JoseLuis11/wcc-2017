@@ -2,6 +2,11 @@
 
   <ion-navbar color="secondary">
     <ion-title>Agregar medicamento</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+            <ion-icon name="close"></ion-icon>
+        </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
@@ -24,7 +29,8 @@
   </ion-list>
   <br>
   <div padding-left padding-right>
-      <button ion-button color="primary" block [disabled]="product.name.length<3 || product.category.length<3 || product.expiredDate.length<4" (click)="addToInventory()">Añadir a inventario</button>
+    <button ion-button color="primary" block [disabled]="product.name.length<3 || product.category.length<3 || product.expiredDate.length<4"
+      (click)="addToInventory()">Añadir a inventario</button>
   </div>
 
 </ion-content>

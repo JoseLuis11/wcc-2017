@@ -26,7 +26,7 @@ export class InventoryPage {
     private toastCtrl: ToastController, 
     private afDb: AngularFireDatabase, 
     private afAuth: AngularFireAuth,
-    private viewlCtrl: ViewController) {
+    private viewCtrl: ViewController) {
     this.id = navParams.get('value');
 
     this.afAuth.authState.subscribe(data => {
@@ -49,7 +49,7 @@ export class InventoryPage {
   }
 
   closeModal(){
-    this.viewlCtrl.dismiss();
+    this.viewCtrl.dismiss();
   }
 
 }

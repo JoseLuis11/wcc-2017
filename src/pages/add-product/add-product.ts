@@ -3,16 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Product } from './../../interfaces/product.interface';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController } from 'ionic-angular';
-
-
-
-/**
- * Generated class for the AddProductPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
 
 @Component({
   selector: 'page-add-product',
@@ -24,8 +15,13 @@ export class AddProductPage {
 
   id:string;
   
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController,
-  private afAuth: AngularFireAuth, private afDb: AngularFireDatabase, private localNotifications: LocalNotifications) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams, 
+    private toastCtrl: ToastController,
+    private afAuth: AngularFireAuth, 
+    private afDb: AngularFireDatabase, 
+    private localNotifications: LocalNotifications,
+    private viewCtrl: ViewController ) {
 
     this.id = navParams.get('value');
   }
@@ -63,6 +59,10 @@ export class AddProductPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddProductPage');
+  }
+
+  closeModal(){
+    this.viewCtrl.dismiss();
   }
 
 }
