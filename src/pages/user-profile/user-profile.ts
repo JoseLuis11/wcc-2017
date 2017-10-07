@@ -32,17 +32,26 @@ export class UserProfilePage {
 
   }
 
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
   deleteUser() {
 
     let user = this.afAuth.auth.currentUser;
 
     this.afAuth.authState.subscribe(data => {
-      const profile = this.afDb.object(`/users/${user.uid}`);
-      profile.remove();
+
+      this.showToast("Usuario eliminado con exito.");
+      
+
       this.subscription.unsubscribe();
       user.delete().then(function () {
-        this.showToast("Usuario eliminado con exito.")
+        
+        const profile = this.afDb.object(`/users/${user.uid}`);
+        profile.remove();
         this.goToLogin();
+        
       }, function (error) {
         this.showToast("Algo salió mal, intentalo de nuevo.")
       });

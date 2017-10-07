@@ -1,13 +1,8 @@
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { Component } from '@angular/core';
 import { LocalNotifications } from '@ionic-native/local-notifications';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the InventoryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-inventory',
@@ -15,7 +10,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InventoryPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public localNotifications: LocalNotifications) {
+  id: string;
+  product;
+  isId: boolean = false;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public localNotifications: LocalNotifications,
+    private toastCtrl: ToastController, private afDb:AngularFireDatabase, private afAuth: AngularFireAuth) {
+    this.id = navParams.get('value');
+    
+    this.showToast(this.id);
+
+    this.afAuth.authState.subscribe(data => {
+      this.product = this.afDb.object(`/users/${data.uid}/${this.id}`);
+    });
+
+    if(this.product == null || this.product == undefined){
+      this.isId = false;
+    }else{
+      this.isId = true;
+    }
+    
+
   }
 
   ionViewDidLoad() {
@@ -27,6 +42,14 @@ export class InventoryPage {
       text: 'Una de tus medicinas ha expirado',
       at: new Date(new Date().getTime() + 2500),
     });
+  }
+
+  private showToast(text: string) {
+    this.toastCtrl.create({
+      message: text,
+      duration: 2500
+
+    }).present();
   }
 
 }

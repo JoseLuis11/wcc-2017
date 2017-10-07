@@ -1,7 +1,6 @@
 export interface Product {
-    
-        name: string;
-        category: string;
-        expiredDate: String;
-    
-    }
+    $key?: string;
+    name: string;
+    category: string;
+    expiredDate: String;
+}

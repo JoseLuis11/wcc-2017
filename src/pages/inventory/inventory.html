@@ -12,13 +12,15 @@
   <ion-list>
     <ion-item>
       <!-- Validar si el id esta en BD -->
-      <!-- Sentecia if para decidir si es un input o label con el nombre del producto -->
+      <ion-label *ngIf="isId"  color="primary">
+        <h6>{{product.name}}</h6>
+      </ion-label>
     </ion-item>
     <ion-item>
       <ion-label color="primary">
-        <h6>Repetir contraseña</h6>
+        <h6>Ingresar fecha de caducidad</h6>
       </ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="product.expiredDate" ></ion-datetime>
     </ion-item>
   </ion-list>
   <button ion-button block (click)="notify()">notify</button>

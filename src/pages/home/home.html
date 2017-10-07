@@ -15,18 +15,18 @@
     </button>
   </ion-fab>
   <ion-list>
-      <ion-item-sliding>
-    <ion-item *ngFor="let product of products | async">
-      <h2>{{ product.name }}</h2>
-      <p>{{ product.category }}</p>
-      <ion-note item-end>{{ product.expiredDate }}</ion-note>
-    </ion-item>
-    <ion-item-options side="left">
-        <button ion-button color="danger" (delete)="deleteProduct()">
+    <ion-item-sliding *ngFor="let product of products | async">
+        <ion-item>
+          <h2>{{ product.name }}</h2>
+          <p>{{ product.category }}</p>
+          <ion-note item-end>{{ product.expiredDate }}</ion-note>
+        </ion-item>
+        <ion-item-options side="right">
+          <button ion-button color="danger" (click)="deleteProduct(product.$key)">
           <ion-icon name="ios-trash-outline"></ion-icon>
           Eliminar
         </button>
-      </ion-item-options>
-  </ion-item-sliding>
+        </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>
