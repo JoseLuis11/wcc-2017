@@ -32,6 +32,13 @@ export class RegisterPage {
   }
 
   addUser() {
+
+
+    if(this.user.password != this.repeatedPassword){
+      this.showToast("Las contraseñas no coinciden.");
+      return;
+    }
+
     let loading = this.loadingCtrl.create({
       content: 'Creando cuenta. Por favor, espere...'
     });

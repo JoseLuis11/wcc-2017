@@ -14,12 +14,12 @@
       <ion-icon name="ios-barcode-outline"></ion-icon>
     </button>
   </ion-fab>
-  <!-- <ion-list>
+  <ion-list>
       <ion-item-sliding>
-    <ion-item *ngFor="">
-      <h2>{{}}</h2>
-      <p>{{}}</p>
-      <ion-note item-end>{{}}</ion-note>
+    <ion-item *ngFor="let product of products | async">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.category }}</p>
+      <ion-note item-end>{{ product.expiredDate }}</ion-note>
     </ion-item>
     <ion-item-options side="left">
         <button ion-button color="danger" (delete)="deleteProduct()">
@@ -28,5 +28,5 @@
         </button>
       </ion-item-options>
   </ion-item-sliding>
-  </ion-list> -->
+  </ion-list>
 </ion-content>

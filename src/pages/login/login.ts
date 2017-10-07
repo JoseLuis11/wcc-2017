@@ -40,12 +40,13 @@ export class LoginPage {
     private afAuth: AngularFireAuth, private afDb: AngularFireDatabase, private loadingCtrl: LoadingController,
     private authService: AuthenticationService, private toastCtrl: ToastController) {
     menuCtrl.enable(false);
+
+    
+    this.user.email = '';
+    this.user.password = '';
   }
 
   ionViewDidLoad() {
-
-    this.user.email = '';
-    this.user.password = '';
 
   }
 

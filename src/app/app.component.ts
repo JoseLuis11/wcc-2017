@@ -1,8 +1,11 @@
+
 import { Component, ViewChild } from '@angular/core';
-import { Nav, Platform } from 'ionic-angular';
+import { Nav, Platform, App, ToastController, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+//services
+import { AuthenticationService } from './../providers/authentication.service';
 
 import { HomePage } from '../pages/home/home';
 import {UserProfilePage} from '../pages/user-profile/user-profile';
@@ -18,7 +21,8 @@ export class MyApp {
 
   pages: Array<{title: string, component: any}>;
 
-  constructor(public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
+  constructor(public platform: Platform, private app: App , public statusBar: StatusBar, public splashScreen: SplashScreen, private authService: AuthenticationService,
+  private toastCtrl:ToastController, private menuCtrl: MenuController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
@@ -45,6 +49,19 @@ export class MyApp {
   }
 
   signOut(){
-    
+    this.authService.signOut();
+    this.app.getRootNav().setRoot(LoginPage);
+    this.showToast("Sesión cerrada.")
+    this.menuCtrl.enable(false);
+    this.menuCtrl.close();
   }
+
+  private showToast(text: string) {
+    this.toastCtrl.create({
+      message: text,
+      duration: 2500
+
+    }).present();
+  }
+
 }
