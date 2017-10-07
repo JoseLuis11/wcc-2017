@@ -33,4 +33,8 @@ export class HomePage {
     toast.present();
   }
 
+  private deleteProduct(){
+    
+  }
+
 }
