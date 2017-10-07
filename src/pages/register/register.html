@@ -6,7 +6,46 @@
 
 </ion-header>
 
-
 <ion-content padding>
-
+  <ion-item>
+    <ion-label color="primary" floating>
+      <h6>Nombre</h6>
+    </ion-label>
+    <ion-input [(ngModel)]="profile.firstName" type="text"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" floating>
+      <h6>Apellido</h6>
+    </ion-label>
+    <ion-input [(ngModel)]="profile.lastName" type="text" placeholder="Apellido" required></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" floating>
+      <h6>Correo electrónico</h6>
+    </ion-label>
+    <ion-input [(ngModel)]="user.email" type="email"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" floating>
+      <h6>Teléfono</h6>
+    </ion-label>
+    <ion-input [(ngModel)]="prifile.phoneNumber" type="number"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label color="primary" floating>
+      <h6>Contraseña</h6>
+    </ion-label>
+    <ion-input [(ngModel)]="user.password" type="password" required></ion-input>
+  </ion-item>
+  <div padding><br>
+    <ion-buttons>
+      <button ion-button block color="dark" icon-right [disabled]="!user.email.includes('@') || !user.email.includes('.') 
+        ||user.email.length<5 || profile.firstName.length<2 || profile.lastName.length<2 || user.password.length<6 
+        || profile.phoneNumber.length<10" (click)="addUser()" ion-button>>
+      Crear cuenta
+      <ion-icon name="ios-log-in-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </div>
+  </ion-list>
 </ion-content>
