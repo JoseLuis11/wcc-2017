@@ -22,7 +22,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -37,7 +38,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     MyApp,
     HomePage,
     ListPage,
-    LoginPage
+    LoginPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,
