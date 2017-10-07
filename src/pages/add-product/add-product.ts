@@ -3,7 +3,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Product } from './../../interfaces/product.interface';
 import { Component } from '@angular/core';
-import { NavController, NavParams, ToastController, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 
 @Component({
   selector: 'page-add-product',
@@ -20,8 +20,7 @@ export class AddProductPage {
     private toastCtrl: ToastController,
     private afAuth: AngularFireAuth, 
     private afDb: AngularFireDatabase, 
-    private localNotifications: LocalNotifications,
-    private viewCtrl: ViewController ) {
+    private localNotifications: LocalNotifications) {
 
     this.id = navParams.get('value');
   }
@@ -60,9 +59,4 @@ export class AddProductPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddProductPage');
   }
-
-  closeModal(){
-    this.viewCtrl.dismiss();
-  }
-
 }
