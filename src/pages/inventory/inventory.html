@@ -12,18 +12,15 @@
   <ion-list>
     <ion-item>
       <!-- Validar si el id esta en BD -->
-      <ion-label *ngIf="isId"  color="primary">
-        <h6>{{product.name}}</h6>
-      </ion-label>
+      
+        <h6>Nombre: {{ (product | async)?.name }}</h6>
+        <h6>Categoria: {{ (product | async)?.category }}</h6>
+        <h6>Fecha de Cad: {{ (product | async)?.expiredDate }}</h6>
     </ion-item>
-    <ion-item>
-      <ion-label color="primary">
-        <h6>Ingresar fecha de caducidad</h6>
-      </ion-label>
-      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="product.expiredDate" ></ion-datetime>
-    </ion-item>
+    
+
+      
   </ion-list>
-  <button ion-button block (click)="notify()">notify</button>
 
 
 </ion-content>

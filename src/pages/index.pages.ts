@@ -1,3 +1,4 @@
+export { AddProductPage } from './add-product/add-product';
 export { RegisterPage } from './register/register';
 export { LoginPage } from './login/login';
 export { HomePage } from '../pages/home/home';

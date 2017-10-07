@@ -1,6 +1,6 @@
 export interface Product {
-    $key?: string;
+    pid: string;
     name: string;
     category: string;
-    expiredDate: String;
+    expiredDate: string;
 }

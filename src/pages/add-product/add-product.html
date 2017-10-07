@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agregar Medicina</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content >
+  <ion-list>
+      <ion-item>
+          <ion-label floating>Nombre</ion-label>
+          <ion-input type="text" [(ngModel)]="product.name"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>Categoria</ion-label>
+            <ion-input type="text" [(ngModel)]="product.category"></ion-input>
+          </ion-item>
+          <ion-item>
+              <ion-label>Fecha de caducidad</ion-label>
+              <ion-datetime displayFormat="MMM DD YYYY" [(ngModel)]="product.expiredDate"></ion-datetime>
+            </ion-item>
+  </ion-list>
+  
+    
+      <button ion-button color="primary" block (click)="addToInventory()">Añadir a inventario</button>
+  
+</ion-content>
