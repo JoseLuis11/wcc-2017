@@ -1,7 +1,7 @@
 import { AddProductPage } from './../add-product/add-product';
 import { Product } from './../../interfaces/product.interface';
 import { Component } from '@angular/core';
-import { NavController, ToastController, ModalController,AlertController } from 'ionic-angular';
+import { NavController, ToastController, ModalController, AlertController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 //Agregar pagina para direccionar el modal
 import { InventoryPage } from '../index.pages';
@@ -97,10 +97,10 @@ export class HomePage {
     
   }
 
-  showConfirm(userKey: string) {
+  showConfirm(productKey: string) {
     let confirm = this.alertCtrl.create({
       title: 'Alerta',
-      message: '¿Seguro que quieres eliminar producto?',
+      message: '¿Seguro que quieres eliminar el producto?',
       buttons: [
         {
           text: 'No',
@@ -111,7 +111,7 @@ export class HomePage {
         {
           text: 'Sí',
           handler: () => {
-            this.deleteProduct("");
+            this.deleteProduct(productKey);
           }
         }
       ]

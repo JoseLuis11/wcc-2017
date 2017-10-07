@@ -28,6 +28,9 @@ export class AddProductPage {
   private afAuth: AngularFireAuth, private afDb: AngularFireDatabase, private localNotifications: LocalNotifications) {
 
     this.id = navParams.get('value');
+    this.product.name = '';
+    this.product.category = '';
+    this.product.expiredDate = '';
   }
 
   addToInventory() {
