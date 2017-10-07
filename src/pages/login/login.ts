@@ -55,7 +55,25 @@ export class LoginPage {
     });
     loading.present();
 
-    this.authService.signInWithEmailAndPassword(this.user);
+    this.authService.signInWithEmailAndPassword(this.user).then(result => {
+      loading.dismiss();
+      this.menuCtrl.enable(true);
+      this.navCtrl.setRoot(this.homePage);
+      this.showToast("Bienvenido a MOVEIS, " + this.user.email);
+      
+    }).catch(error => {
+      loading.dismiss();
+      if (error.message.includes("There is no user record corresponding to this identifier")) {
+        this.showToast('Usuario inexistente.');
+      } else if (error.message.includes("The password is invalid")) {
+        this.showToast('Contraseña incorrecta.');
+      }
+      else {
+        this.showToast('Ha ocurrido un error inesperado. Por favor intente nuevamente.');
+      }
+      console.log(error);
+
+    });
     
   }
 
