@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from 'ionic-angular';
+import { NavController, ToastController, ModalController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+//Agregar pagina para direccionar el modal
+import {  } from '../index.pages';
 
 
 @Component({
@@ -12,7 +14,8 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
     private barcodeScanner: BarcodeScanner, 
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    private modalCtrl: ModalController) {
 
   }
   public scan(){

@@ -14,8 +14,10 @@ import {
   InventoryPage
  } from '../pages/index.pages';
 
+//plugins
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { LocalNotifications } from '@ionic-native/local-notifications';
 
 //services
 import { AuthenticationService } from './../providers/authentication.service';
@@ -61,6 +63,7 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
     AngularFireDatabase,
     AngularFireAuthModule,,
     BarcodeScanner,
+    LocalNotifications,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
