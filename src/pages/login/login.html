@@ -12,8 +12,10 @@
     </ion-item>
 
   </ion-list>
-  <button  [disabled]="!user.email.includes('@') || !user.email.includes('.') 
+  <div padding>
+    <button [disabled]="!user.email.includes('@') || !user.email.includes('.') 
   ||user.email.length<5 || user.password.length<6" ion-button color="primary" block (click)="login()">Iniciar Sesión</button>
+  </div>
 </ion-content>
 
 <ion-footer>

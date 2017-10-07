@@ -31,18 +31,14 @@ export class AddProductPage {
   }
 
   addToInventory() {
-
-    
-    this.showToast(this.id);
-    this.showToast(this.product.name);
     let uid = this.afAuth.auth.currentUser.uid;
-    this.showToast(uid);
     
     this.product.pid = this.id;
 
       this.afDb.object(`users/${uid}/inventory/${this.id}`).set(this.product).then(() => {
         
         this.notify(this.product.name, this.product.expiredDate);
+        this.navCtrl.pop();
       }).catch(error => {
         this.showToast("Algo salió mal, intentalo de nuevo.");
         console.log(error);
