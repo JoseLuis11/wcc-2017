@@ -1,10 +1,3 @@
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Register</ion-title>
-  </ion-navbar>
-
-</ion-header>
 
 <ion-content padding>
   <ion-list>
@@ -40,7 +33,7 @@
     </ion-item>
     <div padding><br>
       <ion-buttons>
-        <button ion-button block color="dark" icon-right [disabled]="!user.email.includes('@') || !user.email.includes('.') 
+        <button ion-button block color="primary" icon-right [disabled]="!user.email.includes('@') || !user.email.includes('.') 
         ||user.email.length<5 || profile.firstName.length<2 
         || profile.lastName.length<2 || user.password.length<6"
          (click)="addUser()" ion-button>
@@ -51,3 +44,9 @@
     </div>
   </ion-list>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p text-center>¿Ya estás registrado? <a navPop >Inicia Sesión. </a></p>
+  </ion-toolbar>
+</ion-footer>

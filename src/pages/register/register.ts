@@ -1,3 +1,6 @@
+//pages
+import { LoginPage } from './../login/login';
+
 //models
 import { Profile } from './../../interfaces/profile.interface';
 import { UserModel } from './../../interfaces/user.interface';
@@ -18,6 +21,7 @@ export class RegisterPage {
   user = {} as UserModel;
   profile = {} as Profile;
   repeatedPassword: string;
+
   constructor(public navCtrl: NavController, private loadingCtrl: LoadingController, private toastCtrl: ToastController, private authService: AuthenticationService) {
     
   }
@@ -38,7 +42,7 @@ export class RegisterPage {
       loading.dismiss();
       this.showToast("Registrado con éxito.")
 
-      //TODO: pop para regresar a login
+      this.navCtrl.pop();
 
     }).catch(error => {
       loading.dismiss();
