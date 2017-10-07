@@ -10,7 +10,6 @@ import {
   HomePage, 
   RegisterPage, 
   LoginPage, 
-  ListPage, 
   UserProfilePage,
   InventoryPage
  } from '../pages/index.pages';
@@ -26,13 +25,13 @@ import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from './../config/firebase.config';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { BarcodeScanner } from "@ionic-native/barcode-scanner";
 
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     RegisterPage,
     UserProfilePage,
@@ -50,7 +49,6 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     RegisterPage,
     UserProfilePage,
@@ -61,7 +59,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
     SplashScreen,
     AuthenticationService,
     AngularFireDatabase,
-    AngularFireAuthModule,
+    AngularFireAuthModule,,
+    BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

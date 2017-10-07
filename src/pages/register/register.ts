@@ -46,8 +46,12 @@ export class RegisterPage {
 
     }).catch(error => {
       loading.dismiss();
-
-      this.showToast("Ha ocurrido un error inesperado. Por favor intente nuevamente.")
+      console.log(error);
+      if (error.message.includes("The email address is already")){
+        this.showToast("Este correo ya está registrado.")
+      }else{
+        this.showToast("Ha ocurrido un error inesperado. Por favor intente nuevamente.")
+      }
     })
 
 

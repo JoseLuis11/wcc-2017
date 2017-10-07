@@ -59,7 +59,6 @@ export class LoginPage {
       loading.dismiss();
       this.menuCtrl.enable(true);
       this.navCtrl.setRoot(this.homePage);
-      this.showToast("Bienvenido a MOVEIS, " + this.user.email);
       
     }).catch(error => {
       loading.dismiss();
