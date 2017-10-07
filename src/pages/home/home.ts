@@ -1,7 +1,7 @@
 import { AddProductPage } from './../add-product/add-product';
 import { Product } from './../../interfaces/product.interface';
 import { Component } from '@angular/core';
-import { NavController, ToastController, ModalController } from 'ionic-angular';
+import { NavController, ToastController, ModalController,AlertController } from 'ionic-angular';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 //Agregar pagina para direccionar el modal
 import { InventoryPage } from '../index.pages';
@@ -29,7 +29,8 @@ export class HomePage {
     public toastCtrl: ToastController,
     private modalCtrl: ModalController,
     private afAuth: AngularFireAuth,
-    private afDb: AngularFireDatabase) {
+    private afDb: AngularFireDatabase,
+    private alertCtrl: AlertController) {
 
     this.subscription = this.afAuth.authState.subscribe(data => {
       this.products = this.afDb.list(`/users/${data.uid}/inventory`).valueChanges();
@@ -93,6 +94,29 @@ export class HomePage {
     const itemsRef = this.afDb.list(`users/${uid}/inventory`);
     // to get a key, check the Example app below
     itemsRef.remove(productKey);
+    
+  }
+
+  showConfirm(userKey: string) {
+    let confirm = this.alertCtrl.create({
+      title: 'Alerta',
+      message: '¿Seguro que quieres eliminar producto?',
+      buttons: [
+        {
+          text: 'No',
+          handler: () => {
+            console.log('No seleccionado');
+          }
+        },
+        {
+          text: 'Sí',
+          handler: () => {
+            this.deleteProduct("");
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }
