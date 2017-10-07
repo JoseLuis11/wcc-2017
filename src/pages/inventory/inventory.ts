@@ -21,8 +21,10 @@ export class InventoryPage {
     this.showToast(this.id);
 
     this.afAuth.authState.subscribe(data => {
-      this.product = this.afDb.object(`/users/${data.uid}/${this.id}`);
+      this.product = this.afDb.object(`/users/${data.uid}/inventory/${this.id}`);
     });
+
+    this.showToast(this.product);
 
     if(this.product == null || this.product == undefined){
       this.isId = false;
