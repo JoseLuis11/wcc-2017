@@ -8,6 +8,19 @@
 
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <!-- Validar si el id esta en BD -->
+      <!-- Sentecia if para decidir si es un input o label con el nombre del producto -->
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary">
+        <h6>Repetir contraseña</h6>
+      </ion-label>
+      <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
+    </ion-item>
+  </ion-list>
   <button ion-button block (click)="notify()">notify</button>
 
 
