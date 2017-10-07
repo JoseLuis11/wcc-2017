@@ -18,7 +18,7 @@
       <ion-label color="primary" floating>
         <h6>Apellido</h6>
       </ion-label>
-      <ion-input [(ngModel)]="profile.lastName" type="text" placeholder="Apellido" required></ion-input>
+      <ion-input [(ngModel)]="profile.lastName" type="text" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label color="primary" floating>
@@ -43,7 +43,7 @@
         <button ion-button block color="dark" icon-right [disabled]="!user.email.includes('@') || !user.email.includes('.') 
         ||user.email.length<5 || profile.firstName.length<2 
         || profile.lastName.length<2 || user.password.length<6"
-         (click)="addUser()" ion-button>>
+         (click)="addUser()" ion-button>
       Crear cuenta
       <ion-icon name="ios-log-in-outline"></ion-icon>
       </button>
