@@ -10,7 +10,6 @@ import {
   HomePage, 
   RegisterPage, 
   LoginPage, 
-  ListPage, 
   UserProfilePage,
   InventoryPage
  } from '../pages/index.pages';
@@ -33,7 +32,6 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
   declarations: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     RegisterPage,
     UserProfilePage,
@@ -51,7 +49,6 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
   entryComponents: [
     MyApp,
     HomePage,
-    ListPage,
     LoginPage,
     RegisterPage,
     UserProfilePage,
