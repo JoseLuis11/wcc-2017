@@ -39,43 +39,33 @@ export class HomePage {
   public scan() {
     this.barcodeScanner.scan().then((barcodeData) => {
 
-      this.openModal(barcodeData.text);
-
-      console.log("Value: ", barcodeData.text);
-      this.barcodeValue = barcodeData.text;
-
-
+      if (barcodeData.cancelled == false && barcodeData.text != null) {
+        this.openModal(barcodeData.text);
+        
+              console.log("Value: ", barcodeData.text);
+              this.barcodeValue = barcodeData.text;}
     }, (err) => {
       console.log("Error: ", err);
       this.showError(err);
     });
   }
-
-  public scan2() {
-
-  }
-
-
-
-
 
   public addProduct() {
 
     this.barcodeScanner.scan().then((barcodeData) => {
 
-
-      console.log("Value: ", barcodeData.text);
-      this.barcodeValue = barcodeData.text;
-
-      let modal = this.modalCtrl.create(AddProductPage, { value: this.barcodeValue });
-
-      modal.present();
-
+      if (barcodeData.cancelled == false && barcodeData.text != null) {
+        console.log("Value: ", barcodeData.text);
+        this.barcodeValue = barcodeData.text;
+  
+        let modal = this.modalCtrl.create(AddProductPage, { value: this.barcodeValue });
+  
+        modal.present();
+      }
     }, (err) => {
-      console.log("Error: ", err);
-      this.showError(err);
+      this.showError("Error: " + err);
     });
-
+      
   }
 
   private openModal(value: string) {
