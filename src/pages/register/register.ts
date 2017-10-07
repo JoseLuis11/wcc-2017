@@ -1,12 +1,13 @@
+//models
+import { Profile } from './../../interfaces/profile.interface';
+import { UserModel } from './../../interfaces/user.interface';
+
+//service
+import { AuthenticationService } from './../../providers/authentication.service';
+
+import { ToastController, LoadingController } from 'ionic-angular';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-
-/**
- * Generated class for the RegisterPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @Component({
   selector: 'page-register',
@@ -14,11 +15,45 @@ import { NavController } from 'ionic-angular';
 })
 export class RegisterPage {
 
-  constructor(public navCtrl: NavController) {
+  user = {} as UserModel;
+  profile = {} as Profile;
+
+  constructor(public navCtrl: NavController, private loadingCtrl: LoadingController, private toastCtrl: ToastController, private authService: AuthenticationService) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RegisterPage');
+  ngOnInit() {
+    this.user.email = '';
+    this.user.password = '';
+  }
+
+  addUser() {
+    let loading = this.loadingCtrl.create({
+      content: 'Creando cuenta. Por favor, espere...'
+    });
+    loading.present();
+
+    this.authService.createUserWithEmailAndPassword(this.user).then(result => {
+      this.authService.createProfile(this.profile);
+      loading.dismiss();
+      this.showToast("Registrado con éxito.")
+
+      //TODO: pop para regresar a login
+
+    }).catch(error => {
+      loading.dismiss();
+
+      this.showToast("Ha ocurrido un error inesperado. Por favor intente nuevamente.")
+    })
+
+
+  }
+
+  private showToast(text: string) {
+    this.toastCtrl.create({
+      message: text,
+      duration: 2500
+
+    }).present();
   }
 
 }
