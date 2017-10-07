@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color = "secondary">
     <ion-title>login</ion-title>
   </ion-navbar>
 
@@ -29,3 +29,9 @@
     </ion-list>
     <button ion-button color="primary">Registrate</button>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <p text-center>¿No estás registrado? <a [navPush]="registerPage">Regístrate. </a></p>
+  </ion-toolbar>
+</ion-footer>
