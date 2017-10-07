@@ -1,21 +1,24 @@
 <ion-content padding>
-  <ion-list>
-    <img src="assets/img/logo.png">
+  <ion-list padding-right>
+    <img padding-left src="assets/img/logo.png">
     <ion-item>
-      <ion-label floating>Correo electronico</ion-label>
+      <ion-label color="primary" floating>Correo electronico</ion-label>
       <ion-input type="email" [(ngModel)]="user.email"></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>Contraseña</ion-label>
+      <ion-label color="primary" floating>Contraseña</ion-label>
       <ion-input type="password" [(ngModel)]="user.password"></ion-input>
     </ion-item>
 
+    <p></p>
+    <div padding>
+        <button [disabled]="!user.email.includes('@') || !user.email.includes('.') 
+        ||user.email.length<5 || user.password.length<6" ion-button color="primary" block (click)="login()">Iniciar Sesión</button>
+    </div>
+
   </ion-list>
-  <div padding>
-    <button [disabled]="!user.email.includes('@') || !user.email.includes('.') 
-  ||user.email.length<5 || user.password.length<6" ion-button color="primary" block (click)="login()">Iniciar Sesión</button>
-  </div>
+  
 </ion-content>
 
 <ion-footer>

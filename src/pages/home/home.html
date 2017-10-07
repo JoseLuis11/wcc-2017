@@ -9,7 +9,7 @@
 
 <ion-content padding>
   <ion-fab right bottom>
-    <button ion-fab (click)="scan()">
+    <button ion-fab color="light" (click)="scan()">
       <ion-icon name="ios-barcode-outline"></ion-icon>
     </button>
   </ion-fab>
@@ -29,13 +29,13 @@
     </ion-item-sliding>
   </ion-list>
 
-  <ion-fab color="primary" right bottom>
-    <button ion-fab color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>
+  <ion-fab color="light" right bottom>
+    <button ion-fab color="light"><ion-icon name="arrow-dropup"></ion-icon></button>
     <ion-fab-list side="top">
-      <button color="primary" ion-fab (click)="scan()">
+      <button color="light" ion-fab (click)="scan()">
               <ion-icon name="ios-barcode-outline"></ion-icon>
             </button>
-      <button color="primary" ion-fab (click)="addProduct()">
+      <button color="light" ion-fab (click)="addProduct()">
                 <ion-icon name="add"></ion-icon>
               </button>
     </ion-fab-list>

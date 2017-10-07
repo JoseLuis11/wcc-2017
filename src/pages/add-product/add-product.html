@@ -10,15 +10,15 @@
 <ion-content>
   <ion-list no-lines padding-top>
     <ion-item>
-      <ion-label stacked>Nombre</ion-label>
+      <ion-label color="primary" stacked>Nombre</ion-label>
       <ion-input type="text" [(ngModel)]="product.name"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Categoria</ion-label>
+      <ion-label color="primary" stacked>Categoria</ion-label>
       <ion-input type="text" [(ngModel)]="product.category"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label stacked>Fecha de caducidad</ion-label>
+      <ion-label color="primary" stacked>Fecha de caducidad</ion-label>
       <ion-datetime displayFormat="MMM/DD/YYYY" max="2030" min="2016" [(ngModel)]="product.expiredDate"></ion-datetime>
     </ion-item>
   </ion-list>
