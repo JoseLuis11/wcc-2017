@@ -12,7 +12,8 @@ import {
   LoginPage, 
   UserProfilePage,
   InventoryPage,
-  AddProductPage
+  AddProductPage,
+  HelpPage
  } from '../pages/index.pages';
 
 //plugins
@@ -39,7 +40,8 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
     RegisterPage,
     UserProfilePage,
     InventoryPage,
-    AddProductPage
+    AddProductPage,
+    HelpPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { BarcodeScanner } from "@ionic-native/barcode-scanner";
     RegisterPage,
     UserProfilePage,
     InventoryPage,
-    AddProductPage
+    AddProductPage,
+    HelpPage
   ],
   providers: [
     StatusBar,

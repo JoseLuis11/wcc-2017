@@ -8,8 +8,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthenticationService } from './../providers/authentication.service';
 
 import { HomePage } from '../pages/home/home';
-import {UserProfilePage} from '../pages/user-profile/user-profile';
-import {LoginPage} from '../pages/login/login';
+import { UserProfilePage } from '../pages/user-profile/user-profile';
+import { LoginPage } from '../pages/login/login';
+import { HelpPage } from '../pages/help/help';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,20 +20,20 @@ export class MyApp {
 
   rootPage: any = LoginPage;
 
-  pages: Array<{title: string, component: any}>;
+  pages: Array<{ title: string, component: any }>;
 
-  constructor(public platform: Platform, private app: App , public statusBar: StatusBar, public splashScreen: SplashScreen, private authService: AuthenticationService,
-  private toastCtrl:ToastController, private menuCtrl: MenuController) {
+  constructor(public platform: Platform, private app: App, public statusBar: StatusBar, public splashScreen: SplashScreen, private authService: AuthenticationService,
+    private toastCtrl: ToastController, private menuCtrl: MenuController) {
     this.initializeApp();
 
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Inventario', component: HomePage },
-      {title: 'Perfil', component: UserProfilePage}
+      { title: 'Perfil', component: UserProfilePage }
     ];
 
   }
-  
+
   initializeApp() {
     this.platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
@@ -48,11 +49,17 @@ export class MyApp {
     this.nav.setRoot(page.component);
   }
 
-  signOut(){
+  signOut() {
     this.authService.signOut();
     this.app.getRootNav().setRoot(LoginPage);
     this.showToast("Sesión cerrada.")
     this.menuCtrl.enable(false);
+    this.menuCtrl.close();
+  }
+
+  help() {
+    this.app.getRootNav().setRoot(HelpPage);
+    this.menuCtrl.enable(true);
     this.menuCtrl.close();
   }
 
