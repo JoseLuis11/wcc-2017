@@ -1,3 +1,4 @@
+import { AngularFireDatabase } from 'angularfire2/database';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -49,7 +50,9 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   providers: [
     StatusBar,
     SplashScreen,
-    AuthenticationService
+    AuthenticationService,
+    AngularFireDatabase,
+    AngularFireAuthModule,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
