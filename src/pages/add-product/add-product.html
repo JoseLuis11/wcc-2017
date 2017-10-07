@@ -24,7 +24,7 @@
   </ion-list>
   <br>
   <div padding-left padding-right>
-      <button ion-button color="primary" block (click)="addToInventory()">Añadir a inventario</button>
+      <button ion-button color="primary" block [disabled]="product.name.length<3 || product.category.length<3 || product.expiredDate.length<4" (click)="addToInventory()">Añadir a inventario</button>
   </div>
 
 </ion-content>
