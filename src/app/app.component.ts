@@ -26,7 +26,7 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       {title: 'Profile', component: UserProfilePage},
-      { title: 'Login' , component: LoginPage}
+      
 
     ];
 
