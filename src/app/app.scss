@@ -14,3 +14,22 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+    @font-face {
+    font-family: Montserrat Medium;
+    src: url("../assets/fonts/Montserrat/Montserrat-Medium.ttf");
+    }
+
+    @font-face {
+        font-family: Montserrat;
+        src: url("../assets/fonts/Montserrat/Montserrat-Regular.ttf");
+        }
+    
+    body, p, ion-label {
+    font-family: 'Montserrat' !important;
+    }
+
+    button, h1, h2, h3, h4, h5, h6, ion-title {
+        font-family: 'Montserrat Medium' !important;
+        letter-spacing: 2px;
+    }
