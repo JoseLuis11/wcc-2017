@@ -10,6 +10,9 @@ import { HomePage, RegisterPage, LoginPage, ListPage, UserProfilePage } from '..
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+//services
+import { AuthenticationService } from './../providers/authentication.service';
+
 //firebase
 import { AngularFireModule } from 'angularfire2';
 import { firebaseConfig } from './../config/firebase.config';
@@ -46,6 +49,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
   providers: [
     StatusBar,
     SplashScreen,
+    AuthenticationService
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
