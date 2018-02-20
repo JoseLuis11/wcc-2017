@@ -64,7 +64,7 @@ export class UserProfilePage {
 
   showConfirm(userKey: string) {
     let confirm = this.alertCtrl.create({
-      title: 'Alerta',
+      title: 'Eliminar',
       message: '¿Seguro que quieres eliminar tu usuario?',
       buttons: [
         {
