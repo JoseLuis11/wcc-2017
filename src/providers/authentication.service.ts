@@ -57,10 +57,10 @@ export class AuthenticationService {
         this.toastCtrl.create({
             message: text,
             duration: 2500
-
         }).present();
     }
 
-
-
+    resetPassword(email: string): Promise<any> {
+        return this.afAuth.auth.sendPasswordResetEmail(email);
+    }
 }
